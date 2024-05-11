@@ -1,12 +1,9 @@
-import AddForm from './components/AddForm';
+import ShoppingList from './components/ShoppingList'
 
 export default function ShoppingApp() {
   return (
-    < >
-     <AddForm />
+    <>
+      <ShoppingList />
     </>
-  );
+  )
 }
-
-
-
