@@ -8,10 +8,9 @@ const mockData = [
   { id: '3', text: 'Erdbeer', status: 'active' },
 ]
 
-export default function ShoppingList() {
+export default function ShoppingList({ filter }) {
   const [items, setItems] = useState(mockData)
   const handleAdd = item => {
-    console.log(item)
     setItems([...items, item])
   }
 
@@ -20,10 +19,12 @@ export default function ShoppingList() {
   const handleDelete = deleted =>
     setItems(items.filter(items => items.id !== deleted.id))
 
+  const filtered = getFilterItems(items, filter)
+
   return (
     <section>
       <ul>
-        {items.map(item => (
+        {filtered.map(item => (
           <ShoppingItem
             key={item.id}
             item={item}
@@ -35,4 +36,11 @@ export default function ShoppingList() {
       <AddForm onAdd={handleAdd} />
     </section>
   )
+}
+
+function getFilterItems(items, filter) {
+  if (filter === 'all') {
+    return items
+  }
+  return items.filter(item => item.status === filter)
 }

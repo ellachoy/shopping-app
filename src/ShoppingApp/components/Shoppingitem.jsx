@@ -3,10 +3,12 @@ import { FaTrashAlt } from 'react-icons/fa'
 
 export default function ShoppingItem({ item, onUpdate, onDelete }) {
   const { id, text, status } = item
+
   const handleChange = e => {
     const status = e.target.checked ? 'completed' : 'active'
     onUpdate({ ...item, status })
   }
+
   const handleDelete = () => onDelete(item)
 
   return (
