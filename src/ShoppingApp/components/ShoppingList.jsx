@@ -22,8 +22,8 @@ export default function ShoppingList({ filter }) {
   const filtered = getFilterItems(items, filter)
 
   return (
-    <section>
-      <ul>
+    <section className='container'>
+      <ul className='list'>
         {filtered.map(item => (
           <ShoppingItem
             key={item.id}

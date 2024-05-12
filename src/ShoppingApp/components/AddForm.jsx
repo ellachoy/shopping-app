@@ -15,14 +15,17 @@ export default function AddForm({ onAdd }) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className='form'>
       <input
+        className='input'
         type='text'
         placeholder='Add item'
         value={text}
         onChange={handleChange}
       />
-      <button type='submit'>Add</button>
+      <button type='submit' className='button'>
+        Add
+      </button>
     </form>
   )
 }

@@ -2,8 +2,8 @@ import React from 'react'
 
 export default function Header({ filters, filter, onFilterChange }) {
   return (
-    <header>
-      <ul>
+    <header className='header'>
+      <ul className='filters'>
         {/* {filters.map((index, value) => (
           <li key={index}> output was number 
             <button onClick={() => onFilterChange(value)}>{value}</button>
@@ -11,7 +11,12 @@ export default function Header({ filters, filter, onFilterChange }) {
         ))} */}
         {filters.map(value => (
           <li key={value}>
-            <button onClick={() => onFilterChange(value)}>{value}</button>
+            <button
+              className={`${'filter'} ${filter === value ? 'selected' : null}`}
+              onClick={() => onFilterChange(value)}
+            >
+              {value}
+            </button>
           </li>
         ))}
       </ul>

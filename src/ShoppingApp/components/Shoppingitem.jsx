@@ -12,17 +12,20 @@ export default function ShoppingItem({ item, onUpdate, onDelete }) {
   const handleDelete = () => onDelete(item)
 
   return (
-    <li>
+    <li className='item'>
       <input
+        className='checkbox'
         type='checkbox'
         id={id}
         onChange={handleChange}
         checked={status === 'completed'}
       />
-      <lable htmlFor={id}>{text}</lable>
+      <lable htmlFor={id} className='text'>
+        {text}
+      </lable>
 
-      <span>
-        <button onClick={handleDelete}>
+      <span className='icon'>
+        <button onClick={handleDelete} className='button'>
           <FaTrashAlt />
         </button>
       </span>
