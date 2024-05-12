@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Header from './components/Header'
 import ShoppingList from './components/ShoppingList'
+import DarkModeProvider from './context/DarkModeContext'
 
 const filters = ['all', 'active', 'completed']
 export default function ShoppingApp() {
@@ -8,7 +9,7 @@ export default function ShoppingApp() {
   console.log(filter)
 
   return (
-    <>
+    <DarkModeProvider>
       <Header
         filters={filters}
         filter={filter}
@@ -16,6 +17,6 @@ export default function ShoppingApp() {
         onFilterChange={setFilter}
       />
       <ShoppingList filter={filter} />
-    </>
+    </DarkModeProvider>
   )
 }
